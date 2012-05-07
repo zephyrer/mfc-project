@@ -1,0 +1,4 @@
+// Microsoft Visual C++ generated Help ID include file.
+// Used by VS2008Converter.rc
+//
+#define HIDC_BUTTON1                    0x806603e9    // IDD_VS2008CONVERTER_DIALOG
