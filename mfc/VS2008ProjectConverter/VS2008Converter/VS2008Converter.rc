@@ -1,0 +1,318 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\VS2008Converter.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\VS2008Converter.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 VS2008Converter"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "VS2008Converter，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2012",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_VS2008CONVERTER_DIALOG DIALOGEX 0, 0, 335, 28
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "VS2008Converter"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "浏览工程文件(&F)",IDC_BUTTON1,3,2,328,23,NOT WS_TABSTOP,0,HIDC_BUTTON1
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "By:KingSollyu"
+            VALUE "FileDescription", "VS工程转换器"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "VS2008Converter.exe"
+            VALUE "LegalCopyright", "KingSollyu。保留所有权利。"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_VS2008CONVERTER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 328
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 21
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "res\\Button_Tip.bmp"
+IDB_BITMAP2             BITMAP                  "res\\help.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    ids_ui_main_dlg_title   "VS工程转换器"
+    ids_ui_dlg_btn_brow_proj "浏览工程文件(&F)"
+    ids_ui_msg_drop_file    "仅支持拖放工程文件(*.sln)"
+    ids_ui_tip_main_button1 "点击按钮来浏览你的工程文件（*.sln）\n<b>注意</b>\n这个功能只能使用在VC++的工程"
+    ids_ui_tip_main_help    "<h2><b>帮助信息</b></h2>"
+    ids_ui_tip_main_button_click "<a msg=""QQ"">不会用？QQ联系我191067617</a>"
+END
+
+STRINGTABLE 
+BEGIN
+    ids_ui_msg_converter_success "全部无错误完成！"
+    ids_ui_msg_file_invi    "文件格式错误！"
+    ids_ui_msg_unknow       "未知错误！"
+    ids_ui_msg_ERR_FILENOTFOUND "没有找到文件！"
+    ids_ui_msg_ERR_ACCESSDENIED "权限错误（操作被拒绝）！"
+    ids_ui_msg_ERR_SHARINGVIOLATION "文件正在被使用且不允许外界访问！"
+    ids_ui_msg_ERR_READFILE "分析格式时发生错误！"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 VS2008Converter(&A)..."
+    ids_ui_dlg_main_open_filter "VS工程文件(*.sln)|*.sln|所有文件(*.*)|*.*||"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "By:KingSollyu"
+            VALUE "FileDescription", "VS Project converter"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "LegalCopyright", "KingSollyu Copyright (C) 2012"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "About VS2008Converter(&A)..."
+    ids_ui_dlg_main_open_filter "VS project(*.sln)|*.sln|All Files(*.*)|*.*||"
+END
+
+STRINGTABLE 
+BEGIN
+    ids_ui_main_dlg_title   "VS Project converter"
+    ids_ui_dlg_btn_brow_proj "&Browser project"
+    ids_ui_msg_drop_file    "Only supports drag Project file(*.sln)"
+    ids_ui_tip_main_button1 "Click the button to browse your project file (*. Sln) \n <b> Note </b> \n This function can only be used in VC++ project"
+    ids_ui_tip_main_help    "<h2><b>Help</b></h2>"
+    ids_ui_tip_main_button_click 
+                            "<a msg=""QQ"">Not use? QQ to contact me 191 067 617</a>"
+END
+
+STRINGTABLE 
+BEGIN
+    ids_ui_msg_converter_success "All done !"
+    ids_ui_msg_file_invi    "File format error!"
+    ids_ui_msg_unknow       "unknown error!"
+    ids_ui_msg_ERR_FILENOTFOUND "File not found!"
+    ids_ui_msg_ERR_ACCESSDENIED 
+                            "The permission error (the operation is denied.)"
+    ids_ui_msg_ERR_SHARINGVIOLATION 
+                            "File is being used and do not allow outside access!"
+    ids_ui_msg_ERR_READFILE "Analysis format error occurred while!"
+END
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\VS2008Converter.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
