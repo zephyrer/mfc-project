@@ -10,3 +10,7 @@
 
   * 增加了主按钮 *提示* 可以使用QQ来联系我
   * 主界面使用了自己写的 *界面优化* 功能和 *皮肤* 功能
+
+= 下载 =
+
+  * [http://code.google.com/p/mfc-project/downloads/detail?name=VS2008Converter.7z&can=2&q=#makechanges 点击下载]
