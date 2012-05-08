@@ -1,5 +1,4 @@
-
-// VS2008ConverterDlg.cpp : ÊµÏÖÎÄ¼ş
+ï»¿/ VS2008ConverterDlg.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -14,20 +13,20 @@
 #define new DEBUG_NEW
 #endif
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ç”¨äºåº”ç”¨ç¨‹åºâ€œå…³äºâ€èœå•é¡¹çš„ CAboutDlg å¯¹è¯æ¡†
 
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_ABOUTBOX };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -45,7 +44,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
 
-// CVS2008ConverterDlg ¶Ô»°¿ò
+// CVS2008ConverterDlg å¯¹è¯æ¡†
 
 
 
@@ -54,8 +53,8 @@ CVS2008ConverterDlg::CVS2008ConverterDlg(CWnd* pParent /*=NULL*/)
 	: CDialogSampleDlgBase(CVS2008ConverterDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-	XTPSkinManager()->SetApplyOptions(XTPSkinManager()->GetApplyOptions() | xtpSkinApplyMetrics);//Õâ¾ä±ØĞëÓĞ£¬
-	XTPSkinManager()->LoadSkin(_T("Metro.cjstyles"));//Õâ¾äÊÇÉèÖÃÒ»ÖÖ·ç¸ñ£¬Office2007.cjstylesÊÇ·ç¸ñÎÄ¼şÃû£¬Òª¿½±´¹ıÀ´¡£
+	XTPSkinManager()->SetApplyOptions(XTPSkinManager()->GetApplyOptions() | xtpSkinApplyMetrics);//è¿™å¥å¿…é¡»æœ‰ï¼Œ
+	XTPSkinManager()->LoadSkin(_T("Metro.cjstyles"));//è¿™å¥æ˜¯è®¾ç½®ä¸€ç§é£æ ¼ï¼ŒOffice2007.cjstylesæ˜¯é£æ ¼æ–‡ä»¶åï¼Œè¦æ‹·è´è¿‡æ¥ã€‚
 
 }
 
@@ -79,26 +78,26 @@ BEGIN_MESSAGE_MAP(CVS2008ConverterDlg, CDialog)
 
 END_MESSAGE_MAP()
 
-// ×Ô¶¨Òå½á¹¹Ìå£¬ÓÃÀ´´¦ÀíÍ¸Ã÷
+// è‡ªå®šä¹‰ç»“æ„ä½“ï¼Œç”¨æ¥å¤„ç†é€æ˜
 typedef struct tag_Transpren{
 	int nStart;
 	int nEnd;
 	int nStep;
 }TRANSPARENT_TAG,*LPTRANSPARENT_TAG;
 
-int		nNowTran_g = 255;	//ÏÖÔÚµÄÍ¸Ã÷Öµ
-HANDLE  hThread	   = NULL;	//Ïß³Ì¾ä±ú
+int		nNowTran_g = 255;	//ç°åœ¨çš„é€æ˜å€¼
+HANDLE  hThread	   = NULL;	//çº¿ç¨‹å¥æŸ„
 
 /*******************************************************************************
-º¯ÊıÃû³Æ:				Transparen	ÉèÖÃ´°ÌåÍ¸Ã÷Ö÷º¯Êı
+å‡½æ•°åç§°:				Transparen	è®¾ç½®çª—ä½“é€æ˜ä¸»å‡½æ•°
 ================================================================================
-²ÎÊıËµÃ÷:				int nStart	¿ªÊ¼Í¸Ã÷¶ÈÎ»ÖÃ
-²ÎÊıËµÃ÷:				int nEnd	½áÊøÍ¸Ã÷¶È	
-²ÎÊıËµÃ÷:				int nStep	²½³¤	
+å‚æ•°è¯´æ˜:				int nStart	å¼€å§‹é€æ˜åº¦ä½ç½®
+å‚æ•°è¯´æ˜:				int nEnd	ç»“æŸé€æ˜åº¦	
+å‚æ•°è¯´æ˜:				int nStep	æ­¥é•¿	
 --------------------------------------------------------------------------------
-·µ»ØÖµ:					void
+è¿”å›å€¼:					void
 --------------------------------------------------------------------------------
-ÎÄ¼ş×÷Õß:				King.Sollyu					QQ:191067617
+æ–‡ä»¶ä½œè€…:				King.Sollyu					QQ:191067617
 *******************************************************************************/
 
 void Transparen(int nStart,int nEnd,int nStep)
@@ -109,10 +108,10 @@ void Transparen(int nStart,int nEnd,int nStep)
 	return ;
 	#endif
 
-	// ÅĞ¶ÏÊäÈë²ÎÊıÊÇ·ñºÏÀí
+	// åˆ¤æ–­è¾“å…¥å‚æ•°æ˜¯å¦åˆç†
 	if (nStart>255 || nStart<0 || nEnd>255 || nEnd<0)	return;
 
-	// ¼¸´ÎÓÃÀ´µ÷ÊÔÊä³öÊ±ÏÔÊ¾»»ĞĞ
+	// å‡ æ¬¡ç”¨æ¥è°ƒè¯•è¾“å‡ºæ—¶æ˜¾ç¤ºæ¢è¡Œ
 	int nSum = 0;
 
 	try{
@@ -120,7 +119,7 @@ void Transparen(int nStart,int nEnd,int nStep)
 		if((dwExStyle&0x80000)!=0x80000) 
 			SetWindowLong(AfxGetApp()->GetMainWnd()->GetSafeHwnd(),GWL_EXSTYLE,dwExStyle|WS_EX_LAYERED); 
 
-// 		AfxGetApp()->GetMainWnd()->ModifyStyle(AfxGetApp()->GetMainWnd()->GetSafeHwnd(),0, WS_EX_LAYERED,NULL); //ĞŞ¸Ä´°¿ÚÊôĞÔÎªWS_EX_LAYERED
+// 		AfxGetApp()->GetMainWnd()->ModifyStyle(AfxGetApp()->GetMainWnd()->GetSafeHwnd(),0, WS_EX_LAYERED,NULL); //ä¿®æ”¹çª—å£å±æ€§ä¸ºWS_EX_LAYERED
 
 		while (nStart>nEnd ? (nNowTran_g>=nEnd):(nNowTran_g<nEnd))
 		{
@@ -132,7 +131,7 @@ void Transparen(int nStart,int nEnd,int nStep)
 			// TRACE(TEXT("%d\t"),nNowTran_g);
 		}
 	}catch(...){
-		// TRACE(TEXT("ÔÚ´¦ÀíÍ¸Ã÷¶ÈÉÏ³öÏÖÁËÎÊÌâ£¬ÊäÈë²ÎÊı£ºDownTransparen(%d,%d,%d)"),nStart,nEnd,nStep);
+		// TRACE(TEXT("åœ¨å¤„ç†é€æ˜åº¦ä¸Šå‡ºç°äº†é—®é¢˜ï¼Œè¾“å…¥å‚æ•°ï¼šDownTransparen(%d,%d,%d)"),nStart,nEnd,nStep);
 
 	}
 	return;
@@ -140,13 +139,13 @@ void Transparen(int nStart,int nEnd,int nStep)
 
 
 /*******************************************************************************
-º¯ÊıÃû³Æ:				threadCallTran	Ïß³Ìµ÷ÓÃÍ¸Ã÷¶ÈÈë¿Ú
+å‡½æ•°åç§°:				threadCallTran	çº¿ç¨‹è°ƒç”¨é€æ˜åº¦å…¥å£
 ================================================================================
-²ÎÊıËµÃ÷:				LPVOID lParam		
+å‚æ•°è¯´æ˜:				LPVOID lParam		
 --------------------------------------------------------------------------------
-·µ»ØÖµ:					void
+è¿”å›å€¼:					void
 --------------------------------------------------------------------------------
-ÎÄ¼ş×÷Õß:				King.Sollyu					QQ:191067617
+æ–‡ä»¶ä½œè€…:				King.Sollyu					QQ:191067617
 *******************************************************************************/
 void threadCallTran(LPVOID lParam)
 {
@@ -154,15 +153,15 @@ void threadCallTran(LPVOID lParam)
 	Transparen(tran->nStart,tran->nEnd,tran->nStep);
 	ExitThread(0);
 }
-// CVS2008ConverterDlg ÏûÏ¢´¦Àí³ÌĞò
+// CVS2008ConverterDlg æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CVS2008ConverterDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖĞ¡£
+	// å°†â€œå…³äº...â€èœå•é¡¹æ·»åŠ åˆ°ç³»ç»Ÿèœå•ä¸­ã€‚
 
-	// IDM_ABOUTBOX ±ØĞëÔÚÏµÍ³ÃüÁî·¶Î§ÄÚ¡£
+	// IDM_ABOUTBOX å¿…é¡»åœ¨ç³»ç»Ÿå‘½ä»¤èŒƒå›´å†…ã€‚
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -180,12 +179,12 @@ BOOL CVS2008ConverterDlg::OnInitDialog()
 		}
 	}
 
-	// ÉèÖÃ´Ë¶Ô»°¿òµÄÍ¼±ê¡£µ±Ó¦ÓÃ³ÌĞòÖ÷´°¿Ú²»ÊÇ¶Ô»°¿òÊ±£¬¿ò¼Ü½«×Ô¶¯
-	//  Ö´ĞĞ´Ë²Ù×÷
-	SetIcon(m_hIcon, TRUE);			// ÉèÖÃ´óÍ¼±ê
-	SetIcon(m_hIcon, FALSE);		// ÉèÖÃĞ¡Í¼±ê
+	// è®¾ç½®æ­¤å¯¹è¯æ¡†çš„å›¾æ ‡ã€‚å½“åº”ç”¨ç¨‹åºä¸»çª—å£ä¸æ˜¯å¯¹è¯æ¡†æ—¶ï¼Œæ¡†æ¶å°†è‡ªåŠ¨
+	//  æ‰§è¡Œæ­¤æ“ä½œ
+	SetIcon(m_hIcon, TRUE);			// è®¾ç½®å¤§å›¾æ ‡
+	SetIcon(m_hIcon, FALSE);		// è®¾ç½®å°å›¾æ ‡
 
-	// TODO: ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–ä»£ç 
 	OnInitUI();
 
 	LPWSTR  *argv = NULL;
@@ -197,7 +196,7 @@ BOOL CVS2008ConverterDlg::OnInitDialog()
 		if (fileText.Open(argv[1],CFile::modeRead,&fileException) == FALSE)
 		{
 			ASSERT (FALSE);
-			// ´ò¿ªÎÄ¼ş´íÎó£¬Ê¶±ğÊ²Ã´´íÎó
+			// æ‰“å¼€æ–‡ä»¶é”™è¯¯ï¼Œè¯†åˆ«ä»€ä¹ˆé”™è¯¯
 			switch (fileException.m_cause)
 			{
 			case CFileException::fileNotFound: AfxMessageBox(loadStringFromID(WorkClass::ERR_FILENOTFOUND));break;
@@ -223,7 +222,7 @@ BOOL CVS2008ConverterDlg::OnInitDialog()
 	}
 
 
-	return FALSE;  // ³ı·Ç½«½¹µãÉèÖÃµ½¿Ø¼ş£¬·ñÔò·µ»Ø TRUE
+	return FALSE;  // é™¤éå°†ç„¦ç‚¹è®¾ç½®åˆ°æ§ä»¶ï¼Œå¦åˆ™è¿”å› TRUE
 }
 
 void CVS2008ConverterDlg::OnInitUI()
@@ -268,24 +267,24 @@ void CVS2008ConverterDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	else
 	{
 		CDialog::OnSysCommand(nID, lParam);
-		//   ÊÖ¶¯Ìí¼ÓWM_NCLBUTTONUPÊÂ¼ş
+		//   æ‰‹åŠ¨æ·»åŠ WM_NCLBUTTONUPäº‹ä»¶
 		if((nID&0xFFF0)==SC_MOVE) PostMessage(WM_NCLBUTTONUP,nID,lParam);
 	}
 }
 
-// Èç¹ûÏò¶Ô»°¿òÌí¼Ó×îĞ¡»¯°´Å¥£¬ÔòĞèÒªÏÂÃæµÄ´úÂë
-//  À´»æÖÆ¸ÃÍ¼±ê¡£¶ÔÓÚÊ¹ÓÃÎÄµµ/ÊÓÍ¼Ä£ĞÍµÄ MFC Ó¦ÓÃ³ÌĞò£¬
-//  Õâ½«ÓÉ¿ò¼Ü×Ô¶¯Íê³É¡£
+// å¦‚æœå‘å¯¹è¯æ¡†æ·»åŠ æœ€å°åŒ–æŒ‰é’®ï¼Œåˆ™éœ€è¦ä¸‹é¢çš„ä»£ç 
+//  æ¥ç»˜åˆ¶è¯¥å›¾æ ‡ã€‚å¯¹äºä½¿ç”¨æ–‡æ¡£/è§†å›¾æ¨¡å‹çš„ MFC åº”ç”¨ç¨‹åºï¼Œ
+//  è¿™å°†ç”±æ¡†æ¶è‡ªåŠ¨å®Œæˆã€‚
 
 void CVS2008ConverterDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+		CPaintDC dc(this); // ç”¨äºç»˜åˆ¶çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
+		// ä½¿å›¾æ ‡åœ¨å·¥ä½œåŒºçŸ©å½¢ä¸­å±…ä¸­
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -293,7 +292,7 @@ void CVS2008ConverterDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// »æÖÆÍ¼±ê
+		// ç»˜åˆ¶å›¾æ ‡
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -302,19 +301,19 @@ void CVS2008ConverterDlg::OnPaint()
 	}
 }
 
-//µ±ÓÃ»§ÍÏ¶¯×îĞ¡»¯´°¿ÚÊ±ÏµÍ³µ÷ÓÃ´Ëº¯ÊıÈ¡µÃ¹â±ê
-//ÏÔÊ¾¡£
+//å½“ç”¨æˆ·æ‹–åŠ¨æœ€å°åŒ–çª—å£æ—¶ç³»ç»Ÿè°ƒç”¨æ­¤å‡½æ•°å–å¾—å…‰æ ‡
+//æ˜¾ç¤ºã€‚
 HCURSOR CVS2008ConverterDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 /*******************************************************************************
-º¯ÊıÃû³Æ:				CTranTestDlg::OnNcLButtonDown	°´ÏÂ±êÌâÀ¸
+å‡½æ•°åç§°:				CTranTestDlg::OnNcLButtonDown	æŒ‰ä¸‹æ ‡é¢˜æ 
 ================================================================================
-·µ»ØÖµ:					void
+è¿”å›å€¼:					void
 --------------------------------------------------------------------------------
-ÎÄ¼ş×÷Õß:				King.Sollyu					QQ:191067617
+æ–‡ä»¶ä½œè€…:				King.Sollyu					QQ:191067617
 *******************************************************************************/
 void CVS2008ConverterDlg::OnNcLButtonDown(UINT nHitTest, CPoint point)
 {
@@ -336,11 +335,11 @@ void CVS2008ConverterDlg::OnNcLButtonDown(UINT nHitTest, CPoint point)
 
 
 /*******************************************************************************
-º¯ÊıÃû³Æ:				CTranTestDlg::OnNcLButtonUp	ËÉ¿ª±êÌâÀ¸
+å‡½æ•°åç§°:				CTranTestDlg::OnNcLButtonUp	æ¾å¼€æ ‡é¢˜æ 
 ================================================================================
-·µ»ØÖµ:					void
+è¿”å›å€¼:					void
 --------------------------------------------------------------------------------
-ÎÄ¼ş×÷Õß:				King.Sollyu					QQ:191067617
+æ–‡ä»¶ä½œè€…:				King.Sollyu					QQ:191067617
 *******************************************************************************/
 void CVS2008ConverterDlg::OnNcLButtonUp(UINT nHitTest, CPoint point)
 {
@@ -362,15 +361,15 @@ void CVS2008ConverterDlg::OnNcLButtonUp(UINT nHitTest, CPoint point)
 
 
 /*******************************************************************************
-º¯ÊıÃû³Æ:				CTranTestDlg::OnActivate	¼¤»î´°ÌåÊÂ¼ş
+å‡½æ•°åç§°:				CTranTestDlg::OnActivate	æ¿€æ´»çª—ä½“äº‹ä»¶
 ================================================================================
-²ÎÊıËµÃ÷:				UINT nState		
-²ÎÊıËµÃ÷:				CWnd * pWndOther		
-²ÎÊıËµÃ÷:				BOOL bMinimized		
+å‚æ•°è¯´æ˜:				UINT nState		
+å‚æ•°è¯´æ˜:				CWnd * pWndOther		
+å‚æ•°è¯´æ˜:				BOOL bMinimized		
 --------------------------------------------------------------------------------
-·µ»ØÖµ:					void
+è¿”å›å€¼:					void
 --------------------------------------------------------------------------------
-ÎÄ¼ş×÷Õß:				King.Sollyu					QQ:191067617
+æ–‡ä»¶ä½œè€…:				King.Sollyu					QQ:191067617
 *******************************************************************************/
 void CVS2008ConverterDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 {
@@ -385,14 +384,14 @@ void CVS2008ConverterDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimiz
 		OnNcLButtonDown(NULL,NULL);
 
 		break;
-	case WA_CLICKACTIVE:// Êó±ê¼¤»î·½Ê½
+	case WA_CLICKACTIVE:// é¼ æ ‡æ¿€æ´»æ–¹å¼
 		// TRACE("------------WA_CLICKACTIVE------\t0x%04x\n",nState);
 		if(nNowTran_g > 250) break;
 		if (hThread != NULL)	TerminateThread(hThread,0);
 		OnNcLButtonUp(NULL,NULL);
 
 		break;
-	case WA_ACTIVE://ÆäËû¼¤»î·½Ê½£¬±ÈÈç Alt+Tab
+	case WA_ACTIVE://å…¶ä»–æ¿€æ´»æ–¹å¼ï¼Œæ¯”å¦‚ Alt+Tab
 		// TRACE("------------WA_ACTIVE------\n");
 		if (hThread != NULL)	TerminateThread(hThread,0);
 		OnNcLButtonUp(NULL,NULL);
@@ -488,7 +487,7 @@ BOOL CVS2008ConverterDlg::ProcessFunc( CString &strFilePath )
 }
 BOOL CVS2008ConverterDlg::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 
 	if (m_xToolTip.RelayEvent(pMsg))
 		return TRUE;
