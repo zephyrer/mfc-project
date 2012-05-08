@@ -13,7 +13,7 @@
 
 // CVS2008ConverterApp
 
-BEGIN_MESSAGE_MAP(CVS2008ConverterApp, CWinAppEx)
+BEGIN_MESSAGE_MAP(CVS2008ConverterApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
@@ -46,7 +46,7 @@ BOOL CVS2008ConverterApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
-	CWinAppEx::InitInstance();
+	CWinApp::InitInstance();
 
 	AfxEnableControlContainer();
 

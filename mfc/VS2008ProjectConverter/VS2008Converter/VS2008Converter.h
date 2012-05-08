@@ -15,7 +15,7 @@
 // 有关此类的实现，请参阅 VS2008Converter.cpp
 //
 
-class CVS2008ConverterApp : public CWinAppEx
+class CVS2008ConverterApp : public CWinApp
 {
 public:
 	CVS2008ConverterApp();
