@@ -14,3 +14,8 @@
 = 下载 =
 
   * [http://code.google.com/p/mfc-project/downloads/detail?name=VS2008Converter.7z&can=2&q=#makechanges 点击下载]
+
+= 界面 =
+
+  == 主界面 ==
+    [https://lh6.googleusercontent.com/-oy17SLQRZLg/T6jSJriyreI/AAAAAAAAADM/J3-3I9zhEIs/s638/sshot-1.jpg]
