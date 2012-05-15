@@ -36,7 +36,7 @@ UINT CWorkClass::ReadFile_( LPCTSTR lpszFilePath,CString& strText )
 		szText[nReadSize]='\0';
 
 		strText = szText;
-		free(szText);
+//		free(szText);
 	}
 
 	fileTxt.Close();

@@ -319,17 +319,17 @@ void CTextCodeConverterDlg::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinim
 
 void CTextCodeConverterDlg::OnBnClickedBtnAdd()
 {
-// 	CListBox* listBox = (CListBox*)GetDlgItem(IDC_LIST1);
-// 
-// 	CString strTemp;
-// 	strTemp.Format(TEXT("%-20s%5s"),TEXT("qwerwre"),TEXT("dddd"));
-// 
-// 	listBox->AddString(strTemp);
-// 	listBox->ModifyStyleEx( 0, WS_EX_CLIENTEDGE );
+	CListBox* listBox = (CListBox*)GetDlgItem(IDC_LIST1);
+
 	CAddDlg addDlg;
 	if ( addDlg.DoModal() == IDOK)
 	{
-
+		if (isJustProce == TRUE)
+		{
+			listBox->ResetContent();
+			isJustProce = FALSE;
+		}
+		listBox->AddString(addDlg.m_strEdit);
 	}
 }
 
@@ -338,22 +338,52 @@ void CTextCodeConverterDlg::OnBnClickedBtnGo()
 	CListBox*  listBox = (CListBox*)GetDlgItem(IDC_LIST1);
 	CComboBox* comboBox = (CComboBox*)GetDlgItem(IDC_COMBO1);
 
+	// 定义保存列表框中输入路径
+	CStringArray straList;
 
+	// 定义列表框中获得的路径和临时转换的文本变量
+	CString strListBoxItemPath,strText;
+
+	// 循环列表框中的每一个元素
 	for (int i=0;i<listBox->GetCount();i++)
 	{
-		CString str,strText;
-		listBox->GetText(i,str);
-		
-		m_work.ReadFile_(str,strText);
-		CFile::Rename(str,str+TEXT(".bak"));
-		if (m_work.SaveFile_(str,strText,comboBox->GetCurSel()==0?CWorkClass::FILE_ANSI:CWorkClass::FILE_UNICODE) == TRUE)
-		{
-			CString strTemp;
-			strTemp.Format(TEXT("%-100s%10s"),str,TEXT("处理成功"));
-			listBox->DeleteString(i);
-			listBox->InsertString(i,strTemp);
-		}
+		// 获得列表框中指定文本内容并添加到数组中
+		listBox->GetText(i,strListBoxItemPath);
+		straList.Add(strListBoxItemPath);		
 	}
+
+	int nListNowPos = 0;
+	listBox->ResetContent();
+
+	for (int i=0;i<straList.GetCount();i++)
+	{
+		listBox->InsertString(nListNowPos,straList.GetAt(i));
+		// 采用搜索模式，这样可以支持通配符
+		CFileFind findFile;
+		BOOL isFinded = findFile.FindFile(straList.GetAt(i));
+		while (isFinded == TRUE)
+		{
+			isFinded = findFile.FindNextFile();
+
+			// 读取找到的文件，存放在strText中
+			m_work.ReadFile_(findFile.GetFilePath(),strText);
+
+			//备份原始文件：将来存放在设置中（此处如果备份文件已存在，则会出现错误）
+			CFile::Rename(findFile.GetFilePath(),findFile.GetFilePath()+TEXT(".bak"));
+
+			// 保存选择的保存编码（全部重新文件）
+			if (m_work.SaveFile_(findFile.GetFilePath(),strText,comboBox->GetCurSel()==0?CWorkClass::FILE_ANSI:CWorkClass::FILE_UNICODE) == TRUE)
+			{
+				CString strTemp;
+				strTemp.Format(TEXT("    %s\t%10s"),findFile.GetFilePath(),TEXT("√"));
+				listBox->InsertString(++nListNowPos,strTemp);
+			}
+		}
+		listBox->InsertString(++nListNowPos,TEXT(""));
+	}
+
+	isJustProce = TRUE;
+
 }
 
 void CTextCodeConverterDlg::OnLbnDblclkList1()
@@ -366,8 +396,10 @@ void CTextCodeConverterDlg::OnLbnDblclkList1()
 			CString strTmp;
 			
 			listBox->GetText(nSel,strTmp);
-		
-			CAddDlg addDlg(strTmp);
-			addDlg.DoModal();
+			if (strTmp.Left(1) != TEXT(" "))
+			{
+				CAddDlg addDlg(strTmp);
+				addDlg.DoModal();
+			}
 	}
 }
