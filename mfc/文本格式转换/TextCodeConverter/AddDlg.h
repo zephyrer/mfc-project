@@ -14,6 +14,7 @@ public:
 	CAddDlg(CWnd* pParent = NULL);   // 标准构造函数
 	CAddDlg(LPCTSTR szPath);
 	virtual ~CAddDlg();
+	CString m_strEdit;
 
 // 对话框数据
 	enum { IDD = IDD_DIALOG1 };

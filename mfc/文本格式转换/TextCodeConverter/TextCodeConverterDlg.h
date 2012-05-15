@@ -25,6 +25,7 @@ public:
 protected:
 	HICON m_hIcon;
 	CWorkClass m_work;
+	BOOL isJustProce;
 
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();

@@ -134,34 +134,49 @@ void CAddDlg::OnCbnSelchangeCombo1()
 
 void CAddDlg::OnBnClickedOk()
 {
-	// TODO: 在此添加控件通知处理程序代码
-	CString strEdit;
+	// 获得主窗口句柄，用来在列表框中增加数据（虽然这样不安全，但个人喜欢）
 	CTextCodeConverterDlg* MainDlg = (CTextCodeConverterDlg*)this->GetParent();	
 	ASSERT(MainDlg->GetSafeHwnd());
 
+	// 取得主窗口中的列表框句柄
 	CListBox* listBox = (CListBox*)MainDlg->GetDlgItem(IDC_LIST1);
 	ASSERT(listBox->GetSafeHwnd());
 
-	GetDlgItemText(IDC_EDIT1,strEdit);
+	GetDlgItemText(IDC_EDIT1,m_strEdit);
 
+	// 如果在启动窗口时为修改内容，则删除对应位置数据之后，然后在增加
 	if (m_bUpdate == TRUE)
 	{
 		listBox->DeleteString(listBox->GetCurSel());
-		listBox->InsertString(listBox->GetCurSel(),strEdit);
+		listBox->InsertString(listBox->GetCurSel(),m_strEdit);
 	}
-	else
-	{
-		listBox->AddString(strEdit);
-	}
-
 	OnOK();
 }
 
+/*******************************************************************************
+函数名称:　　　　　　　　 OnBnClickedButton1　点击浏览按钮
+================================================================================
+返回值:　　　　　　　　 　 void
+--------------------------------------------------------------------------------
+文件作者:				King.Sollyu					QQ:191067617
+*******************************************************************************/
 void CAddDlg::OnBnClickedButton1()
 {
 	CFileDialog fDlg(TRUE);
 	if (fDlg.DoModal() == IDOK)
 	{
-		SetDlgItemText(IDC_EDIT1,fDlg.GetPathName());
+		// 如果下拉菜单选择的为文件就直接输出文件路径
+		// 负责就将选中的 文件名 改为 *
+		if (m_ComboBox.GetCurSel() == 0)
+		{
+			SetDlgItemText(IDC_EDIT1,fDlg.GetPathName());
+		}else 
+		{
+			CString strPathTemp;
+
+			strPathTemp.Format(TEXT("%s\\*.%s"),fDlg.GetPathName().Left(fDlg.GetPathName().ReverseFind('\\')),fDlg.GetFileExt());
+			SetDlgItemText(IDC_EDIT1,strPathTemp);
+		}
+
 	}
 }
