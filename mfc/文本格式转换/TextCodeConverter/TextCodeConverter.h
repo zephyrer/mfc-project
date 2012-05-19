@@ -27,6 +27,8 @@ public:
 // й╣ож
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CString LoadStringFormId( UINT nID );
 };
 
 extern CTextCodeConverterApp theApp;

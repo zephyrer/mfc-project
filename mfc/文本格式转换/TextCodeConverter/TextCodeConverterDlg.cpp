@@ -145,6 +145,13 @@ void threadCallTran(LPVOID lParam)
 	ExitThread(0);
 }
 // CTextCodeConverterDlg 消息处理程序
+void CTextCodeConverterDlg::OnInitUI()
+{
+	SetWindowText(theApp.LoadStringFormId(ids_ui_main_dlg_title));
+	SetDlgItemText(IDC_BTN_ADD,theApp.LoadStringFormId(ids_ui_main_btn_add));
+	SetDlgItemText(IDC_BTN_GO,theApp.LoadStringFormId(ids_ui_main_btn_go));
+
+}
 
 BOOL CTextCodeConverterDlg::OnInitDialog()
 {
@@ -175,8 +182,8 @@ BOOL CTextCodeConverterDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	CComboBox* comboBox = (CComboBox*)GetDlgItem(IDC_COMBO1);
-	comboBox->SetCurSel(0);
+	((CComboBox*)GetDlgItem(IDC_COMBO1))->SetCurSel(0);
+	OnInitUI();
 
 	// TODO: 在此添加额外的初始化代码
 

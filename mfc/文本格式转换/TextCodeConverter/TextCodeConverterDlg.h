@@ -27,6 +27,7 @@ protected:
 	CWorkClass m_work;
 	BOOL isJustProce;
 
+	void OnInitUI();
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -42,3 +43,4 @@ public:
 	afx_msg void OnBnClickedBtnGo();
 	afx_msg void OnLbnDblclkList1();
 };
+extern CTextCodeConverterApp theApp;
