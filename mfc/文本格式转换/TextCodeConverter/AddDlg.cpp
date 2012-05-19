@@ -15,6 +15,7 @@ CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CAddDlg::IDD, pParent)
 {
 	m_bUpdate = FALSE;
+	m_szPath = TEXT("");
 }
 
 CAddDlg::CAddDlg( LPCTSTR szPath )
@@ -47,24 +48,35 @@ END_MESSAGE_MAP()
 
 // CAddDlg 消息处理程序
 
+inline void CAddDlg::OnInitUI()
+{
+	SetWindowText(theApp.LoadStringFormId(ids_ui_add_dlg_title));
+	m_ComboBox.ResetContent();
+	m_ComboBox.AddString(theApp.LoadStringFormId(ids_ui_add_com_file));
+	m_ComboBox.AddString(theApp.LoadStringFormId(ids_ui_add_com_folder));
+	SetDlgItemText(IDC_LB_1,theApp.LoadStringFormId(ids_ui_add_lb_path));
+	SetDlgItemText(IDOK,theApp.LoadStringFormId(ids_ui_add_btn_ok));
+	SetDlgItemText(IDCANCEL,theApp.LoadStringFormId(ids_ui_add_btn_cancel));
+}
+
+
 BOOL CAddDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
-
+	OnInitUI();
 	if (m_bUpdate == TRUE)
 	{
 		m_ComboBox.SetCurSel(0);
 		SetDlgItemText(IDC_EDIT1,m_szPath);
-		SetWindowPos(NULL,0,0,IDI_DLG_WITH,120,SWP_NOMOVE);//设置窗口的初始大小为750*555
+		SetWindowPos(NULL,0,0,IDI_DLG_WITH,125,SWP_NOMOVE);//设置窗口的初始大小为750*555
 
 	}else
 	{
-		SetWindowPos(NULL,0,0,IDI_DLG_WITH,50,SWP_NOMOVE);//设置窗口的初始大小为750*555
-
+		SetWindowPos(NULL,0,0,IDI_DLG_WITH,55,SWP_NOMOVE);//设置窗口的初始大小为750*555
 	}
-
+	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
@@ -109,7 +121,7 @@ void CAddDlg::OnCbnSelchangeCombo1()
 	if (m_ComboBox.GetCurSel() == 0)
 	{
 		SetDlgItemText(IDC_EDIT1,m_szPath);
-		for(int i=rcDlg.bottom;rcDlg.bottom<=120;i++)
+		for(int i=rcDlg.bottom;rcDlg.bottom<=125;i++)
 		{
 			rcDlg.bottom += 1;
 			SetWindowPos(NULL,0,0,IDI_DLG_WITH,rcDlg.bottom,SWP_NOMOVE);
@@ -162,7 +174,7 @@ void CAddDlg::OnBnClickedOk()
 *******************************************************************************/
 void CAddDlg::OnBnClickedButton1()
 {
-	CFileDialog fDlg(TRUE);
+	CFileDialog fDlg(TRUE,TEXT("txt"),NULL,4|2,theApp.LoadStringFormId(ids_ui_add_filedlg_filer));
 	if (fDlg.DoModal() == IDOK)
 	{
 		// 如果下拉菜单选择的为文件就直接输出文件路径

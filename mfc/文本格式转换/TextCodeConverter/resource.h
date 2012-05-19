@@ -6,6 +6,17 @@
 #define IDD_ABOUTBOX                    100
 #define IDS_ABOUTBOX                    101
 #define IDD_TEXTCODECONVERTER_DIALOG    102
+#define ids_ui_main_dlg_title           102
+#define ids_ui_main_btn_add             103
+#define ids_ui_main_btn_go              104
+#define ids_ui_add_dlg_title            105
+#define ids_ui_add_com_file             106
+#define ids_ui_add_com_folder           107
+#define IDS_STRING108                   108
+#define ids_ui_add_lb_path              108
+#define ids_ui_add_btn_ok               109
+#define ids_ui_add_btn_cancel           110
+#define ids_ui_add_filedlg_filer        111
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG1                     130
 #define IDC_LIST1                       1000

@@ -34,4 +34,6 @@ public:
 	CButton m_cancel;
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedButton1();
+	inline void OnInitUI();
 };
+extern CTextCodeConverterApp theApp;
