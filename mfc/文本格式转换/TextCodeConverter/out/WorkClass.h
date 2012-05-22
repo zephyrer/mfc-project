@@ -33,7 +33,9 @@ private:
 
 public:
 	UINT ReadFile_(LPCTSTR lpszFilePath,CString& strText);
-	BOOL SaveFile_(LPCTSTR lpszFilePath,CString& strText,UINT nCode=FILE_ANSI);
+	UINT ReadFile_(LPCTSTR lpszFilePath,CString& strText,UINT nCode);
+
+	BOOL SaveFile_(LPCTSTR lpszFilePath,CString strText,UINT nCode=FILE_ANSI);
 
 	UINT ReadFile_Ansi(LPCTSTR lpszFilePath,CString& strText);
 
