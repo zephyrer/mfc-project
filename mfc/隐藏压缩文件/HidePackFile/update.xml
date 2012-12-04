@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!-- 软件说明 -->
+<Software>
+	<SoftInfo Name="软件名称" author="King.Sollyu" Description="软件说明" />
+	<SoftVersion Versoin="1.0" UpdateTitle="隐藏压缩文件 Ver1.0" UpdateTime="2012年12月4日" DownURL="http://pan.baidu.com/share/link?shareid=156308&amp;uk=286069529" 
+UpdateText="2012年12月4日 01:27:33
+  * 完全更新和实现" />
+</Software>
