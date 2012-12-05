@@ -39,10 +39,13 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="XTPDropBrowseEdit.h">
+    <ClInclude Include="MyExt\MyExt.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="OleDropTargetEx.h">
+    <ClInclude Include="MyExt\Update.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XTPDropBrowseEdit.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,10 +59,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="XTPDropBrowseEdit.cpp">
+    <ClCompile Include="MyExt\MyExt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="OleDropTargetEx.cpp">
+    <ClCompile Include="MyExt\Update.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XTPDropBrowseEdit.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

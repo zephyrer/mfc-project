@@ -1,29 +1,28 @@
 #pragma once
-#include "OleDropTargetEx.h"
 class CXTPDropBrowseEdit : public CXTPBrowseEdit
 {
+private:
+	BOOL m_isImage;
 public:
-	CXTPDropBrowseEdit(void);
-	virtual ~CXTPDropBrowseEdit(void);
+	CXTPDropBrowseEdit(BOOL isImage);
+	~CXTPDropBrowseEdit(void);
 
-	// Implementation
-public:
-	BOOL m_bDraging;
-	virtual BOOL Register();
+	inline BOOL CHECK_IS_PIC_FILE(CString strImageExt)
+	{
+		if (strImageExt.MakeLower() == _T(".jpg") || strImageExt.MakeLower() == _T(".gif") || strImageExt.MakeLower() == _T(".bmp") || strImageExt.MakeLower() == _T(".png") )
+			return TRUE;
+		return FALSE;
+	};
 
-	// Generated message map functions
-protected:
-	COleDropTargetEx m_dropEx;
-	//处理OnDropEx消息是必须的，否则OnDrop函数不会被执行
-	//当然也可以在OnDropEx函数中处理数据
-	virtual LRESULT OnDrop(WPARAM pDropInfoClass, LPARAM lParm);
-	virtual LRESULT OnDropEx(WPARAM pDropInfoClass, LPARAM lParm);
-	virtual LRESULT OnDragOver(WPARAM pDropInfoClass,LPARAM lParm);
-	//{{AFX_MSG(CDropEdit)
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-	//}}AFX_MSG
+	inline BOOL CHECK_IS_PACK_FILE(CString strPackExt)
+	{
+		if (strPackExt.MakeLower() == _T(".7z") || strPackExt.MakeLower() == _T(".zip") || strPackExt.MakeLower() == _T(".rar"))
+			return TRUE;
+		return FALSE;
+	};
+
 
 	DECLARE_MESSAGE_MAP()
-
+	afx_msg void OnDropFiles(HDROP hDropInfo);
 };
 

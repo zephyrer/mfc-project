@@ -94,6 +94,7 @@ END_MESSAGE_MAP()
 
 CHidePackFileDlg::CHidePackFileDlg(CWnd* pParent /*=NULL*/)
 	: CDialogSampleDlgBase(CHidePackFileDlg::IDD, pParent,xtpResizeNoVertical)
+	,m_wndImage(TRUE),m_wndPack(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	XTPSkinManager()->SetApplyOptions(XTPSkinManager()->GetApplyOptions() | xtpSkinApplyMetrics);//这句必须有，
@@ -211,7 +212,6 @@ BOOL CHidePackFileDlg::OnInitDialog()
 	CDialogSampleDlgBase::OnInitDialog();
 
 	// 将“关于...”菜单项添加到系统菜单中。
-	m_wndPack.Register();
 
 	// IDM_ABOUTBOX 必须在系统命令范围内。
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
@@ -453,9 +453,8 @@ void CHidePackFileDlg::OnBnClickedButton1()
 		CString strErr;
 		strErr.Format(_TEXT("文件：%s 已存在！是否覆盖？"),strFinishNamePath);
 
-		// HACK:将自定义窗口显示去掉
-		// 		if (CMyExt::ShowError(strErr,80,TDCBF_YES_BUTTON | TDCBF_NO_BUTTON, _TEXT("重写提醒"),TD_QUESTION_ICON) == IDNO)
-		if (MessageBox(strErr,_TEXT("重写提醒"),MB_ICONQUESTION | MB_YESNO) == IDNO )
+ 		if (CMyExt::ShowError(strErr,80,TDCBF_YES_BUTTON | TDCBF_NO_BUTTON, _TEXT("重写提醒"),TD_QUESTION_ICON) == IDNO)
+// 		if (MessageBox(strErr,_TEXT("重写提醒"),MB_ICONQUESTION | MB_YESNO) == IDNO )
 			return;
 	}
 
@@ -483,6 +482,21 @@ void CHidePackFileDlg::OnNMClickLogOut(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CHidePackFileDlg::OnDropFiles(HDROP hDropInfo)
 {
-	MessageBox(_T("dsd"));
+	wchar_t filePath[200];
+	UINT count = DragQueryFile(hDropInfo, 0xFFFFFFFF, NULL, 0);
+
+	if (count != 0 || count == 2)
+	{
+		for(UINT i=0; i<count; i++)
+		{
+			int pathLen = DragQueryFile(hDropInfo, i, filePath, sizeof(filePath));
+			if (CHECK_IS_PIC_FILE(PathFindExtension(filePath)) == TRUE)
+				SetDlgItemText(IDC_EDIT1,filePath);
+			else if (CHECK_IS_PACK_FILE(PathFindExtension(filePath)) == TRUE)
+			    SetDlgItemText(IDC_EDIT2,filePath);
+		}
+	}
+
+	DragFinish(hDropInfo);
 	CDialogSampleDlgBase::OnDropFiles(hDropInfo);
 }
