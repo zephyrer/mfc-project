@@ -48,8 +48,8 @@
 
 
 #include <XTToolkitPro.h> 
-// #include "MyExt.h"
-// #include "Update.h"
+#include "MyExt.h"
+#include "Update.h"
 
 #ifdef _UNICODE
 #if defined _M_IX86

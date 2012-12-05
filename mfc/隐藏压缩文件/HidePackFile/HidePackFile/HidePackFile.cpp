@@ -36,12 +36,11 @@ CHidePackFileApp theApp;
 
 // CHidePackFileApp 初始化
 
-// UNDONE: 检测升级被取消
-// void Thread_CheckUpdate(void)
-// {
-// 	CUpdate up(MY_SOFT_CHECK_UPDATA);
-// 	up.CheckUpdate(MySoftVersoin);
-// }
+void Thread_CheckUpdate(void)
+{
+	CUpdate up(MY_SOFT_CHECK_UPDATA);
+	up.CheckUpdate(MySoftVersoin);
+}
 
 BOOL CHidePackFileApp::InitInstance()
 {
@@ -61,7 +60,7 @@ BOOL CHidePackFileApp::InitInstance()
 	//------------------------------------------------------------------------------
 	// 创建检查更新线程
 	//------------------------------------------------------------------------------
-// 	::CreateThread(NULL,NULL,(LPTHREAD_START_ROUTINE)Thread_CheckUpdate,NULL,NULL,NULL);
+	::CreateThread(NULL,NULL,(LPTHREAD_START_ROUTINE)Thread_CheckUpdate,NULL,NULL,NULL);
 #endif
 	AfxOleInit();
 	AfxEnableControlContainer();

@@ -24,6 +24,7 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 
+
 	inline BOOL CHECK_IS_PIC_FILE(CString strImageExt)
 	{
 		if (strImageExt.MakeLower() == _T(".jpg") || strImageExt.MakeLower() == _T(".gif") || strImageExt.MakeLower() == _T(".bmp") || strImageExt.MakeLower() == _T(".png") )
@@ -37,7 +38,6 @@ public:
 			return TRUE;
 		return FALSE;
 	};
-
 
 
 // 实现
@@ -59,4 +59,6 @@ public:
 	afx_msg void OnNMClickLogOut(NMHDR *pNMHDR, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnDropFiles(HDROP hDropInfo);
+
+
 };
