@@ -1,0 +1,20 @@
+将其他的Visual studio工程转换为Visual studio 2008工程
+
+# 简介 #
+
+这是一个可以将Visual studio 2003 2005 等其他工程，转换为2008的一个小程序，此程序只支持转换Visual C++的工程，其他的工程不被支持。
+
+
+# 详情 #
+
+  * 增加了主按钮 **提示** 可以使用QQ来联系我
+  * 主界面使用了自己写的 **界面优化** 功能和 **皮肤** 功能
+
+# 下载 #
+
+  * [点击下载](http://code.google.com/p/mfc-project/downloads/detail?name=VS2008Converter.7z&can=2&q=#makechanges)
+
+# 界面 #
+
+> ## 主界面 ##
+> > ![https://lh6.googleusercontent.com/-oy17SLQRZLg/T6jSJriyreI/AAAAAAAAADM/J3-3I9zhEIs/s638/sshot-1.jpg](https://lh6.googleusercontent.com/-oy17SLQRZLg/T6jSJriyreI/AAAAAAAAADM/J3-3I9zhEIs/s638/sshot-1.jpg)
